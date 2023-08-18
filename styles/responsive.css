@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+/*Define posicao do menu de login de acordo com o icone do header*/
+
+@media screen and (min-width: 1200px){
+    .loginContainer{
+        right: 180px;
+    }
+}
+

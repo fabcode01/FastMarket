@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastMarket</title>
+    <link rel="shortcut icon" href="../imgs/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../styles/responsive.css">
+    
+    
+    
+</head>
+<body id="body" onresize="menuPosition()">
+    <div class="top_banner">vários produtos com até<important> 65% de desconto</important>, aproveite! </div>
+    <header>
+        <div class="header_container">
+            <h2 class="logo">Fast.Market</h2>
+            <div class="search_Container">
+                <input type="text" name="search_Box" id="search_Box" class="search_Box" placeholder="procurar produtos">
+                <span class="material-symbols-outlined">search</span>
+            </div>
+
+            <div class="shopping_cart_container">
+                <span class="material-symbols-outlined" onclick="hideMenu(1)">
+                    shopping_cart
+                </span>
+            </div>
+
+            <div class="user_login" id="user_login">
+                <span class="material-symbols-outlined" onclick="hideMenu(2, 'open')">
+                    person
+                    </span>
+
+
+                
+
+                </div>
+            </div>
+        </div>
+
+        <div class="loginContainer" id="loginContainer">
+            <h2>Faça Login e aproveite as ofertas!</h2>
+
+            <span class="material-symbols-outlined">
+                person
+                </span>
+
+            <form action="login.php">
+
+                <label for="userEmail">Email:</label>
+                <input type="email" name="userEmail" id="userEmail">
+
+                <label for="userPassword">senha:</label>
+                <input type="password" name="userPassword" id="userPassword">
+
+                <input type="button" value="entrar" id="loginBttn">
+
+            </form> 
+        </div>
+
+
+        <div class="cartContainer" id="cartContainer">
+            <h2 id="cartDesc">Seu carrinho</h2>
+            <img src="../imgs/empty-cart.png" alt="icon-empty">
+            <p class="descCartEmpty">que vazio...</p>
+
+
+
+        </div>
+
+
+          
+    </header>
+    <nav>
+        <div class="nav_container">
+            <ul>
+                <li>Todos</li>  |
+                <li>padaria  </li>  |
+                <li>açougue  </li>  |
+                <li>limpeza  </li>  |
+                <li>utilitários  </li>
+                
+            </ul>
+        </div>
+
+
+    </nav>
+
+
+
+    <main id="main">
+
+        <div class="bannerTop">
+            <picture>
+               
+                <img src="../imgs/banner_main.png" alt="banner">
+            </picture>
+        </div>
+
+
+        <div class="produtosContainer">
+            <span class="produto" id="#1">
+                <h3 class="desconto">12% de desconto</h3>
+
+                <img class="imgProduto" src="../imgs/Cafe-3-Coracoes-Torrado-e-Moido-Tradicional-500g.png" alt="café-3-Corações">
+
+                <p class="descricaoProduto">Cafe 3 Corações Tradicional 500g</p>
+
+                <p class="precoAntes">R$25,60</p>
+
+                <p class="precoAtual">R$22,53</p>
+
+                <span class="btnAddCart">+</span>
+            </span>
+
+            <span class="produto">
+                
+            </span>
+            <span class="produto">
+
+            </span>
+            <span class="produto">
+
+            </span>
+
+           
+
+
+        </div>
+
+
+
+
+
+
+    </main>
+</body>
+
+
+
+
+<script src="../js/main.js"></script>
+</html>
