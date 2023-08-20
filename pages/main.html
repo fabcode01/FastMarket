@@ -23,13 +23,16 @@
             </div>
 
             <div class="shopping_cart_container">
-                <span class="material-symbols-outlined" onclick="hideMenu(1)">
+
+                <div id="qntProduto">0</div>
+
+                <span class="material-symbols-outlined" onmouseenter="hideMenu(1)">
                     shopping_cart
                 </span>
             </div>
 
             <div class="user_login" id="user_login">
-                <span class="material-symbols-outlined" onclick="hideMenu(2, 'open')">
+                <span class="material-symbols-outlined" onmouseenter="hideMenu(2, 'open')">
                     person
                     </span>
 
@@ -63,9 +66,19 @@
 
         <div class="cartContainer" id="cartContainer">
             <h2 id="cartDesc">Seu carrinho</h2>
-            <img src="../imgs/empty-cart.png" alt="icon-empty">
-            <p class="descCartEmpty">que vazio...</p>
+            <div class="cartEmpty" id="cartEmpty">
+                
+                <img src="../imgs/empty-cart.png" alt="icon-empty">
+                <p class="descCartEmpty">que vazio...</p>
+            </div>
 
+            <div class="cartProdutos" id="cartProdutos">
+                
+
+                
+
+                
+            </div>
 
 
         </div>
@@ -104,7 +117,7 @@
             <span class="produto" id="#1">
                 <h3 class="desconto">12% de desconto</h3>
 
-                <img class="imgProduto" src="../imgs/Cafe-3-Coracoes-Torrado-e-Moido-Tradicional-500g.png" alt="café-3-Corações">
+                <div class="imgProduto1"></div>
 
                 <p class="descricaoProduto">Cafe 3 Corações Tradicional 500g</p>
 
@@ -112,11 +125,22 @@
 
                 <p class="precoAtual">R$22,53</p>
 
-                <span class="btnAddCart">+</span>
+                <span class="btnAddCart" id="btnAddCart" onclick="addCartItems('teste', '../imgs/Cafe-3-Coracoes-Torrado-e-Moido-Tradicional-500g.png', 'Cafe 3 Corações Tradicional 500g', 'R$22,53')">+</span>
+                
             </span>
 
             <span class="produto">
-                
+                <h3 class="desconto">30% de desconto</h3>
+
+                <div class="imgProduto2"></div>
+
+                <p class="descricaoProduto">Arroz Camil 1KG</p>
+
+                <p class="precoAntes">R$7,99</p>
+
+                <p class="precoAtual">R$5,60</p>
+
+                <span class="btnAddCart" id="btnAddCart" onclick="addCartItems('teste', '../imgs/arroz_camil.jpg', 'Arroz Camil 1Kg', 'R$5,60')">+</span>
             </span>
             <span class="produto">
 
@@ -136,6 +160,13 @@
 
 
     </main>
+
+
+    <div id="alert">
+        <span class="material-symbols-outlined" id="alertIcon">check</span>
+        <h3 id="descAlert"></h3>
+    </div>
+
 </body>
 
 
