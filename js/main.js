@@ -45,60 +45,85 @@ btnAddCart.addEventListener('click', ()=>{
 })
 
 
-//adicionar produtos no carrinho
+
+class produto{
+    constructor(Id, urlImg, descProduto, preco){
+    this.Id = Id
+    this.urlImg = urlImg
+    this.descProduto = descProduto
+    this.preco = preco
+
+}
 
 
-function addCartItems(Id, urlImg, descProduto, preco){
+
+    adicionarProdutoNoCarrinho(Id, urlImg, descProduto, preco){
+
+        alerta('add')
+    document.getElementById('cartEmpty').style.display = 'none'
     
-    
 
-    var Id = Math.random(0, 4)
+    
     var qntItems = document.getElementById('qntProduto')
+    
 
-    qntItems.innerHTML ++
-
-    alert('add')
     
 
     if(document.getElementById('qntProduto').innerHTML > 0){
         document.getElementById('cartEmpty').style.display = 'none'
     }
- 
-   
-    document.getElementById('cartProdutos').innerHTML += `
+    
+    if(document.getElementById(`${Id}`) !== null){
+        document.querySelector(`#${Id} .qntItens`).innerHTML ++
+      } else {
+        qntItems.innerHTML ++
+        document.getElementById('cartProdutos').innerHTML += `
 
-    <span class="item" id="${Id}">
-                    <img src="${urlImg}" alt="" class="itemImg">
+            <span class="item" id="${Id}">
+                            <img src="${urlImg}" alt="" class="itemImg">
 
-                    <p class="itemDesc">${descProduto}</p>
+                            <p class="itemDesc">${descProduto}</p>
 
-                    <p class="itemPreco">${preco}</p>
-
-                    <span class="material-symbols-outlined" onclick='removeCartItems(${Id})'>delete</span>
-                    </span>
-    </span>`
-
-}
+                            
 
 
+                            <span class='qntItens'>1</span>
+                            <span class="material-symbols-outlined" onclick="removerProdutoDoCarrinho(${Id})">delete</span>
+                            </span>
 
-//remover produtos do carrinho
+                            <p class="itemPreco">${preco}</p>
 
+                            
+            </span>`
+      }
 
-function removeCartItems(removeId){
-    document.getElementById(`${removeId}`).remove()
-    alert('remove')
-    document.getElementById('qntProduto').innerHTML --
+      
+      
 
-    if(document.getElementById('qntProduto').innerHTML == 0){
-        document.getElementById('cartEmpty').style.display = 'flex'
+     
     }
+
 }
+
+let Produto = new produto()
+   
+function removerProdutoDoCarrinho(Id){
+    console.log(Id)
+
+
+    /*if (document.querySelector(`span[class='qntItens']`).innerHTML == 0){
+        Id.remove()
+    } else{
+        document.querySelector(`span[class='qntItens']`).innerHTML -- 
+    }*/
+    
+}
+
 
 
 //alerta remvoer, adicionar e funcao
 
-function alert(acao){
+function alerta(acao){
     var alert = document.getElementById('alert')
     let alertIcon = document.getElementById('alertIcon')
     let msgAlert = document.getElementById('descAlert')

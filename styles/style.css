@@ -266,7 +266,7 @@ label{
 
 .cartProdutos{
     color: black;
-   
+    
     width: 90%; height: 80px;
     margin-top: 20px;
     
@@ -278,8 +278,10 @@ label{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-direction: row-reverse;
+    
     background-color: white;
-    border-radius: 10px;
+    
     margin-top: 10px;
     
    
@@ -291,12 +293,23 @@ label{
     width: 70px;
     height: 100%;
     background-color: #daa807;
-    margin-left: -10px;
-    border-radius: 10px 0 0 10px ;
+   
+    
 }
 
 .cartProdutos .itemDesc{
-    font-size: 0.8em;
+    width: 70px;
+    overflow: hidden;
+    margin-left: 15px;
+    font-size: 0.7em;
+}
+
+.cartProdutos .itemPreco{
+    
+    display: inline;
+    background-color: white;
+    padding: 5px;
+    border-radius: 0px 0px 10px 10px;
 }
 
 
@@ -312,6 +325,16 @@ label{
 
 .cartProdutos .material-symbols-outlined:active{
     transform: scale(1.10);
+}
+
+.cartProdutos #qntItens{
+    padding: 10px;
+    margin-left: 10px;
+    
+    
+    
+    
+    
 }
 
 
