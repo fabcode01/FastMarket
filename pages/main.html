@@ -12,7 +12,7 @@
     
     
 </head>
-<body id="body" onresize="menuPosition()">
+<body id="body">
     <div class="top_banner">vários produtos com até<important> 65% de desconto</important>, aproveite! </div>
     <header>
         <div class="header_container">
@@ -26,7 +26,7 @@
 
                 <div id="qntProduto">0</div>
 
-                <span class="material-symbols-outlined" onmouseenter="hideMenu(1)">
+                <span class="material-symbols-outlined" onmouseenter="hideMenu(1)" id="cart">
                     shopping_cart
                 </span>
             </div>
@@ -58,7 +58,7 @@
                 <label for="userPassword">senha:</label>
                 <input type="password" name="userPassword" id="userPassword">
 
-                <input type="button" value="entrar" id="loginBttn">
+                <input type="button" value="entrar" id="loginBttn" onclick="alerta('ilus')">
 
             </form> 
         </div>
@@ -115,9 +115,9 @@
 
         <div class="produtosContainer">
             <span class="produto" id="#1">
-                <h3 class="desconto">12% de desconto</h3>
+                <h3 class="desconto">12%</h3>
 
-                <div class="imgProduto1"></div>
+                <div class="imgProdutoPadrao1"></div>
 
                 <p class="descricaoProduto">Cafe 3 Corações Tradicional 500g</p>
 
@@ -125,14 +125,14 @@
 
                 <p class="precoAtual">R$22,53</p>
 
-                <span class="btnAddCart" id="btnAddCart" onclick="Produto.adicionarProdutoNoCarrinho('cafe', '../imgs/Cafe-3-Coracoes-Torrado-e-Moido-Tradicional-500g.png', 'Cafe 3 Corações Tradicional 500g', 'R$22,53')">+</span>
+                <span class="btnAddCart" id="btnAddCart" onclick="adicionarProdutoNoCarrinho('cafe', '../imgs/Cafe-3-Coracoes-Torrado-e-Moido-Tradicional-500g.png', 'Cafe 3 Corações Tradicional 500g', 'R$22,53')">+</span>
                 
             </span>
 
             <span class="produto" id="acucar">
-                <h3 class="desconto">30% de desconto</h3>
+                <h3 class="desconto">30%</h3>
 
-                <div class="imgProduto2"></div>
+                <div class="imgProdutoPadrao2"></div>
 
                 <p class="descricaoProduto">Arroz Camil 1KG</p>
 
@@ -140,13 +140,36 @@
 
                 <p class="precoAtual">R$5,60</p>
 
-                <span class="btnAddCart" id="btnAddCart" onclick="Produto.adicionarProdutoNoCarrinho('arroz', '../imgs/arroz_camil.jpg', 'Arroz Camil 1 KG', 'R$5,50')">+</span>
+                <span class="btnAddCart" id="btnAddCart" onclick="adicionarProdutoNoCarrinho('arroz', '../imgs/arroz_camil.jpg', 'Arroz Camil 1 KG', 'R$5,50')">+</span>
             </span>
             <span class="produto">
+                <h3 class="desconto">65%</h3>
+
+                <div class="imgProdutoPadrao3"></div>
+
+                <p class="descricaoProduto">Feijão Carioca Kicaldo 1kg</p>
+
+                <p class="precoAntes">R$10,00</p>
+
+                <p class="precoAtual">R$3,50</p>
+
+                <span class="btnAddCart" id="btnAddCart" onclick="adicionarProdutoNoCarrinho('feijao', '../imgs/feijao.jpg', 'Feijão Carioca Kicaldo 1kg', 'R$3,50')">+</span>
 
             </span>
             <span class="produto">
+                <h1 id="addProdutos">+</h1>
+            </span>
 
+            <span class="produto">
+                <h1 id="addProdutos">+</h1>
+            </span>
+
+            <span class="produto">
+                <h1 id="addProdutos">+</h1>
+            </span>
+
+            <span class="produto">
+                <h1 id="addProdutos">+</h1>
             </span>
 
            
@@ -166,6 +189,11 @@
         <span class="material-symbols-outlined" id="alertIcon">check</span>
         <h3 id="descAlert"></h3>
     </div>
+
+
+    <id id="back-to-top">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </id>
 
 </body>
 

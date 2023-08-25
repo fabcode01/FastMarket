@@ -10,10 +10,23 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     user-select: none;
-   
-    
-  
+   scroll-behavior: smooth; 
 
+}
+
+
+*::-webkit-scrollbar {
+   
+    width: 0px;
+  }
+*::-webkit-scrollbar-track{
+    background-color: white;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    
 }
 
 :root{
@@ -30,7 +43,7 @@ important{
 /*-------------------------------------------------------------*/
 
 .top_banner{
-    
+    font-size: 1.5em;
     text-align: center;
     padding: 5px;
 }
@@ -158,6 +171,8 @@ header{
 
     box-shadow: -1px 9px 16px rgba(0, 0, 0, 0.37);
 
+
+    z-index: 1;
     
 }
 
@@ -231,6 +246,8 @@ label{
     border-top: 5px solid var(--second-color);
 
     box-shadow: -1px 9px 16px rgba(0, 0, 0, 0.37);
+
+    z-index: 1;
     overflow: auto;
 }
 
@@ -277,8 +294,8 @@ label{
 .cartProdutos .item{
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    
     
     background-color: white;
     
@@ -292,7 +309,7 @@ label{
 .cartProdutos .itemImg{
     width: 70px;
     height: 100%;
-    background-color: #daa807;
+   
    
     
 }
@@ -434,7 +451,7 @@ picture > img{
     
     background-color: white;
     
-    width: 170px; height: 300px;
+    width: 170px; height: 330px;
     padding: 5px;
     
 
@@ -452,16 +469,27 @@ picture > img{
 
 
 .produto > .desconto{
-    width: 100%;
+    text-align: center;
+    display: inline-block;
+    width: 70px;
+    
+    padding: 10px;
+    position: relative;
+    top: -4.5px;
+    right: -5px;
+
+    border-radius: 0 0 10px 10px;
+    
     text-align: center;
    font-size: 1.1em;
-    border-radius: 10px;
+   z-index: 0;
+    
 
     color: aliceblue;
     background-color: var(--primary-color);
 }
 
-.produto > .imgProduto1{
+.produto > .imgProdutoPadrao1{
     background-image: url(../imgs/Cafe-3-Coracoes-Torrado-e-Moido-Tradicional-500g.png);
     background-repeat: no-repeat;
     background-position: center center;
@@ -471,8 +499,18 @@ picture > img{
     margin: auto;
 }
 
-.produto > .imgProduto2{
+.produto > .imgProdutoPadrao2{
     background-image: url(../imgs/arroz_camil.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 70px;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+.produto > .imgProdutoPadrao3{
+    background-image: url(../imgs/feijao.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 70px;
@@ -531,6 +569,7 @@ picture > img{
 
 
 #alert{
+    z-index: 1;
     font-size: 0.9em;
     display: none;
     position: fixed;
@@ -567,3 +606,50 @@ picture > img{
     padding: 10px;
 }
 
+
+#back-to-top{
+    z-index: 0;
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    
+    justify-content: center;
+   
+    width: 100%;
+    
+    
+    
+
+}
+
+#back-to-top span{
+    color: aliceblue;
+    background-color: var(--primary-color);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#back-to-top span:hover{
+    
+}
+
+
+
+.shake-animation{
+    animation: shake 2s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+
+    25%{
+        transform: rotate(10deg);
+    }
+
+    75%{
+        transform: rotate(-10deg);
+    }
+
+   
+}

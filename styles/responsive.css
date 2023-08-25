@@ -2,9 +2,26 @@
 
 /*Define posicao do menu de login de acordo com o icone do header*/
 
+
+
 @media screen and (min-width: 1200px){
     .loginContainer{
         right: 180px;
+    }
+
+    .cartContainer{
+        right: 180px;
+    }
+}
+
+
+@media screen and (min-width: 1630px){
+    .loginContainer{
+        right: 480px;
+    }
+
+    .cartContainer{
+        right: 480px;
     }
 }
 

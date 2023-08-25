@@ -2,6 +2,7 @@ var menuLogin = document.getElementById('loginContainer')
 var menuCart = document.getElementById('cartContainer')
 var btnAddCart = document.getElementById('btnAddCart')
 
+
 //funcao abre e fecha os menus
 function hideMenu(selecionado){
     if(selecionado == 2 && menuLogin.checkVisibility() === false){
@@ -38,86 +39,97 @@ document.getElementById('main').addEventListener('mouseenter',() => {
 
 
 
-//controle de interação do botao de adicionar
+//
 
 btnAddCart.addEventListener('click', ()=>{
     btnAddCart.style.widows = 'black'
 })
 
 
+//Adicionar itens ao carrinho
 
-class produto{
-    constructor(Id, urlImg, descProduto, preco){
-    this.Id = Id
-    this.urlImg = urlImg
-    this.descProduto = descProduto
-    this.preco = preco
+    function adicionarProdutoNoCarrinho(Id, urlImg, descProduto, preco){
 
-}
+        var elementosItem = [
+            `${Id}`,
+            `${urlImg}`,
+            `${descProduto}`,
+            `${preco}`
+        ]
 
-
-
-    adicionarProdutoNoCarrinho(Id, urlImg, descProduto, preco){
-
+        
         alerta('add')
-    document.getElementById('cartEmpty').style.display = 'none'
-    
-
-    
-    var qntItems = document.getElementById('qntProduto')
-    
-
-    
-
-    if(document.getElementById('qntProduto').innerHTML > 0){
         document.getElementById('cartEmpty').style.display = 'none'
+        
+
+        var qntItems = document.getElementById('qntProduto')
+  
+        if(document.getElementById('qntProduto').innerHTML > 0){
+            document.getElementById('cartEmpty').style.display = 'none'
+        }
+        
+        if(document.getElementById(`${Id}`) !== null){
+            document.querySelector(`#${Id} .qntItens`).innerHTML ++
+            
+        } else {
+            const cartIcon = document.getElementById('cart')
+            cartIcon.classList.add('shake-animation')
+
+            var qntProdutos = Id
+            qntItems.innerHTML ++
+
+            document.getElementById('cartProdutos').innerHTML +=  `
+
+                <div class="item" id="${Id}">
+                                <img src="${urlImg}" alt="" class="itemImg">
+
+                                <p class="itemDesc">${descProduto}</p>
+
+                                
+
+
+                                <span class='qntItens' id="${Id}">1</span>
+                                <p class="itemPreco">${preco}</p>
+                                <span class="material-symbols-outlined" onclick="removerProdutoDoCarrinho(${elementosItem[0]})">do_not_disturb_on</span>
+                                </span>
+
+                                
+
+                                
+                </div>`
+        
+        }
+
     }
+
     
-    if(document.getElementById(`${Id}`) !== null){
-        document.querySelector(`#${Id} .qntItens`).innerHTML ++
-      } else {
-        qntItems.innerHTML ++
-        document.getElementById('cartProdutos').innerHTML += `
+//remover itens do carrinho
+    function removerProdutoDoCarrinho(removeId){
+        if(removeId[1].innerHTML == 1){
+           removeId[0].remove()
+           document.getElementById('qntProduto').innerHTML --
+           alerta('rem')
 
-            <span class="item" id="${Id}">
-                            <img src="${urlImg}" alt="" class="itemImg">
-
-                            <p class="itemDesc">${descProduto}</p>
-
-                            
+           
 
 
-                            <span class='qntItens'>1</span>
-                            <span class="material-symbols-outlined" onclick="removerProdutoDoCarrinho(${Id})">delete</span>
-                            </span>
+           if(document.getElementById('qntProduto').innerHTML == 0){
+            document.getElementById('cart').classList.remove('shake-animation')
+            document.getElementById('cartEmpty').style.display = 'flex'
+           }
 
-                            <p class="itemPreco">${preco}</p>
+        } else {
+            removeId[1].innerHTML --
+        }
 
-                            
-            </span>`
-      }
 
-      
-      
-
-     
     }
 
-}
 
-let Produto = new produto()
+
+
    
-function removerProdutoDoCarrinho(Id){
-    console.log(Id)
 
-
-    /*if (document.querySelector(`span[class='qntItens']`).innerHTML == 0){
-        Id.remove()
-    } else{
-        document.querySelector(`span[class='qntItens']`).innerHTML -- 
-    }*/
-    
-}
 
 
 
@@ -135,11 +147,16 @@ function alerta(acao){
         msgAlert .innerHTML = 'item adicionado ao carrinho'
 
     
-    } else {
+    } else if(acao === 'rem') {
         alert.style.display = 'flex'
         alertIcon.innerHTML = 'delete'
         alertIcon.style.backgroundColor = 'red'
         msgAlert .innerHTML = 'item removido do carrinho'
+    } else if(acao === 'ilus'){
+        alert.style.display = 'flex'
+        alertIcon.innerHTML = 'error'
+        alertIcon.style.backgroundColor = 'yellow'
+        msgAlert .innerHTML = 'função ilustrativa :)'
     }
 
     let interval = setInterval(()=>{
@@ -151,5 +168,21 @@ function alerta(acao){
 
 
 }
+
+//Botao Back-To-Top
+var backTopButton = document.getElementById('back-to-top')
+backTopButton.addEventListener('click',()=>{
+    window.scrollTo(0,0)
+})
+window.addEventListener('scroll', ()=>{
+    if(this.window.scrollY >= 500){
+       
+        backTopButton.style.display = 'flex'
+    } else {
+        backTopButton.style.display = 'none'
+    }
+    console.log(window.scrollY)
+
+})
 
 
