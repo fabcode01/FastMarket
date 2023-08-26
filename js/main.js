@@ -50,6 +50,9 @@ btnAddCart.addEventListener('click', ()=>{
 
     function adicionarProdutoNoCarrinho(Id, urlImg, descProduto, preco){
 
+
+
+
         var elementosItem = [
             `${Id}`,
             `${urlImg}`,
@@ -57,12 +60,38 @@ btnAddCart.addEventListener('click', ()=>{
             `${preco}`
         ]
 
+
+
         
         alerta('add')
         document.getElementById('cartEmpty').style.display = 'none'
+        document.getElementById('cartProdutos').style.display = 'block'
+
+       
+
+        var valorSoma = preco.replace('R$','')
+        var valorSoma = parseFloat(valorSoma)
+
+        var somaHTML = document.getElementById('soma').innerHTML
+        somaHTML = parseFloat(somaHTML)
+
+        var somaNum = somaHTML + valorSoma
+        
+
+        document.getElementById('soma').innerHTML = parseFloat(somaNum).toFixed(2)
+        
+        //console.log(document.getElementById('soma').innerHTML = valorSoma)
+        
+       
+
+     
+        
+        
         
 
         var qntItems = document.getElementById('qntProduto')
+        var qntItemsCart = document.getElementById('itensNoCart')
+       
   
         if(document.getElementById('qntProduto').innerHTML > 0){
             document.getElementById('cartEmpty').style.display = 'none'
@@ -76,6 +105,8 @@ btnAddCart.addEventListener('click', ()=>{
             cartIcon.classList.add('shake-animation')
 
             var qntProdutos = Id
+
+            qntItemsCart.innerHTML ++
             qntItems.innerHTML ++
 
             document.getElementById('cartProdutos').innerHTML +=  `
@@ -90,7 +121,7 @@ btnAddCart.addEventListener('click', ()=>{
 
                                 <span class='qntItens' id="${Id}">1</span>
                                 <p class="itemPreco">${preco}</p>
-                                <span class="material-symbols-outlined" onclick="removerProdutoDoCarrinho(${elementosItem[0]})">do_not_disturb_on</span>
+                                <span class="material-symbols-outlined" onclick="removerProdutoDoCarrinho(${elementosItem[0]},'${preco}')">do_not_disturb_on</span>
                                 </span>
 
                                 
@@ -104,22 +135,37 @@ btnAddCart.addEventListener('click', ()=>{
 
     
 //remover itens do carrinho
-    function removerProdutoDoCarrinho(removeId){
+    function removerProdutoDoCarrinho(removeId, preco){
+
+        var valorSoma = preco.replace('R$','')
+            var valorSoma = parseFloat(valorSoma)
+
+            var somaHTML = document.getElementById('soma').innerHTML
+            somaHTML = parseFloat(somaHTML)
+
+            var somaNum = somaHTML - valorSoma
+            
+
+            document.getElementById('soma').innerHTML = parseFloat(somaNum).toFixed(2)
+
         if(removeId[1].innerHTML == 1){
            removeId[0].remove()
            document.getElementById('qntProduto').innerHTML --
+           document.getElementById('itensNoCart').innerHTML --
            alerta('rem')
 
-           
-
-
+          
            if(document.getElementById('qntProduto').innerHTML == 0){
             document.getElementById('cart').classList.remove('shake-animation')
+            document.getElementById('cartProdutos').style.display = 'none'
             document.getElementById('cartEmpty').style.display = 'flex'
+            document.getElementById('soma').innerHTML = 0
            }
 
         } else {
             removeId[1].innerHTML --
+
+            
         }
 
 
@@ -127,7 +173,12 @@ btnAddCart.addEventListener('click', ()=>{
 
 
 
+function clearAll(){
 
+    //gambiarra :)
+    location.reload()
+    
+}
    
 
 
@@ -144,7 +195,7 @@ function alerta(acao){
         alert.style.display = 'flex'
         alertIcon.innerHTML = 'check'
         alertIcon.style.backgroundColor = 'green'
-        msgAlert .innerHTML = 'item adicionado ao carrinho'
+        msgAlert .innerHTML = 'item adicionado'
 
     
     } else if(acao === 'rem') {
@@ -181,7 +232,7 @@ window.addEventListener('scroll', ()=>{
     } else {
         backTopButton.style.display = 'none'
     }
-    console.log(window.scrollY)
+
 
 })
 

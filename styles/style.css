@@ -10,7 +10,9 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     user-select: none;
-   scroll-behavior: smooth; 
+   scroll-behavior: smooth;
+ 
+
 
 }
 
@@ -26,6 +28,7 @@
 *::-webkit-scrollbar-thumb {
     background-color: var(--primary-color);
     border-radius: 10px;
+    
     
 }
 
@@ -48,20 +51,23 @@ important{
     padding: 5px;
 }
 header{
-    
+    position: sticky;
+    z-index: 2;
+    top: 0;
     background-color: var(--primary-color);
     width: 100%;
 }
 
 
 .header_container{
+    
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 10px;
     width: 100%;
     max-width: 731px;
-    height: 100px;
+    height: 70px;
     margin: auto;
 }
 
@@ -282,6 +288,7 @@ label{
 /*Carrinho com item*/
 
 .cartProdutos{
+    display: none;
     color: black;
     
     width: 90%; height: 80px;
@@ -349,6 +356,92 @@ label{
     margin-left: 10px;
     
     
+}
+
+
+.produtos{
+    font-size: 0.9em;
+    text-transform: uppercase;
+    background-color: var(--second-color);
+    margin-top: 20px;
+
+    color: rgb(0, 0, 0);
+    text-align: center;
+
+    
+
+}
+
+
+.containerSoma{
+
+    
+    position: sticky;
+    
+    display: flex;
+    align-items: center;
+    
+    width: 100%;
+    height: 80px;
+    
+    padding: 5px;
+    background-color: white;
+}
+
+.cartContainer::-webkit-scrollbar {
+   
+    width: 5px;
+  }
+.cartContainer::-webkit-scrollbar-track{
+    background-color: white;
+}
+
+.cartContainer::-webkit-scrollbar-thumb {
+    background-color: var(--second-color);
+    border-radius: 10px;
+    
+    
+}
+
+
+.containerSoma .descSoma{
+    font-size: 1.3em;
+    width: 130px;
+    margin-right: 8px;
+}
+
+#soma{
+    display: block;
+    font-size: 1.6em;
+
+    width: 90%;
+    
+    margin-left: 3px;
+    margin-top: -10px;
+}
+
+
+.btnComprar{
+    color: white;
+    width: 120px;
+    background-color: var(--primary-color);
+
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.btnComprar:active{
+    transform: scale(1.1);
+}
+
+
+.clearAll{
+    cursor: pointer;
+    
+    color: #ffffff;
+
+
     
     
     
@@ -443,6 +536,14 @@ picture > img{
     flex-direction: row;
     flex-wrap: wrap;
 
+    margin: auto;
+    margin-top: 20px;
+    
+    
+   width: 100%;
+   max-width: 892px;
+
+    border-top: 2px solid var(--primary-color);
     
 }
 
@@ -489,6 +590,23 @@ picture > img{
     background-color: var(--primary-color);
 }
 
+.maiorDesconto{
+    
+    animation: piscar 0.5s ease;
+    animation-iteration-count: infinite;
+}
+
+@keyframes piscar {
+    0%{
+        background-color: var(--primary-color);
+    }
+
+    100%{
+        background-color: var(--second-color);
+    }
+}
+
+
 .produto > .imgProdutoPadrao1{
     background-image: url(../imgs/Cafe-3-Coracoes-Torrado-e-Moido-Tradicional-500g.png);
     background-repeat: no-repeat;
@@ -518,6 +636,28 @@ picture > img{
     height: 150px;
     margin: auto;
 }
+
+.produto > .imgProdutoPadrao4{
+    background-image: url(../imgs/leite-italac.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 140px;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+.produto > .imgProdutoPadrao5{
+    background-image: url(../imgs/margarina.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 140px;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+
 
 .produto > .descricaoProduto{
     text-align: center;
@@ -569,41 +709,51 @@ picture > img{
 
 
 #alert{
-    z-index: 1;
-    font-size: 0.9em;
+    z-index: 0;
+    
     display: none;
     position: fixed;
+    justify-content: center;
     align-items: center;
     width: 100%;
     
     bottom: 10px;
     justify-content: center;
-    opacity: 0.7;
-
+    width: 50%;
+    
+    
+    
     
     
 
 }
 
-#alert h3{
-    
-    align-items: center;
-    justify-content: center;
-    
-   
-    display: inline-block;
-    
-    border-radius: 20px;
 
+.alertC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 30px;
+    width: 90%;
+    height: 30px;
+}
+
+#alert h3{
+    font-size: 0.8em;
+    display: inline-block;
     padding: 10px;
-   
-  
+    margin-top: 3px;
+}
+
+#descAlert{
+    color: #ffffff;
 }
 
 #alert span{
     background-color: green;
     border-radius: 50%;
-    padding: 10px;
+   
 }
 
 
@@ -611,7 +761,7 @@ picture > img{
     z-index: 0;
     display: none;
     position: fixed;
-    bottom: 10px;
+    bottom: 30px;
     
     justify-content: center;
    

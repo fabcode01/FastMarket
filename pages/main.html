@@ -69,18 +69,26 @@
             <div class="cartEmpty" id="cartEmpty">
                 
                 <img src="../imgs/empty-cart.png" alt="icon-empty">
-                <p class="descCartEmpty">que vazio...</p>
+                <p>que vazio...</p>
+                <p>adicione um item</p>
             </div>
 
             <div class="cartProdutos" id="cartProdutos">
                 
 
                 
-
                 
+                <div id="containerSoma" class="containerSoma">
+                    <span class="descSoma">R$<span id="soma">0</span></span>
+                    <span class="btnComprar" onclick="alerta('ilus')">Finalizar Compra</span>
+                </div>
+                <span class="clearAll" onclick="clearAll()">Limpar tudo [<span id="itensNoCart">0</span>]</span>
+                
+
+                <h3 class="produtos">produtos</h3>
             </div>
 
-
+            
         </div>
 
 
@@ -125,7 +133,7 @@
 
                 <p class="precoAtual">R$22,53</p>
 
-                <span class="btnAddCart" id="btnAddCart" onclick="adicionarProdutoNoCarrinho('cafe', '../imgs/Cafe-3-Coracoes-Torrado-e-Moido-Tradicional-500g.png', 'Cafe 3 Corações Tradicional 500g', 'R$22,53')">+</span>
+                <span class="btnAddCart" id="btnAddCart" onclick="adicionarProdutoNoCarrinho('cafe', '../imgs/Cafe-3-Coracoes-Torrado-e-Moido-Tradicional-500g.png', 'Cafe 3 Corações Tradicional 500g', 'R$22.53')">+</span>
                 
             </span>
 
@@ -140,10 +148,10 @@
 
                 <p class="precoAtual">R$5,60</p>
 
-                <span class="btnAddCart" id="btnAddCart" onclick="adicionarProdutoNoCarrinho('arroz', '../imgs/arroz_camil.jpg', 'Arroz Camil 1 KG', 'R$5,50')">+</span>
+                <span class="btnAddCart" id="btnAddCart" onclick="adicionarProdutoNoCarrinho('arroz', '../imgs/arroz_camil.jpg', 'Arroz Camil 1 KG', 'R$5.60')">+</span>
             </span>
             <span class="produto">
-                <h3 class="desconto">65%</h3>
+                <h3 class="desconto maiorDesconto">65%</h3>
 
                 <div class="imgProdutoPadrao3"></div>
 
@@ -153,9 +161,43 @@
 
                 <p class="precoAtual">R$3,50</p>
 
-                <span class="btnAddCart" id="btnAddCart" onclick="adicionarProdutoNoCarrinho('feijao', '../imgs/feijao.jpg', 'Feijão Carioca Kicaldo 1kg', 'R$3,50')">+</span>
+                <span class="btnAddCart" id="btnAddCart" onclick="adicionarProdutoNoCarrinho('feijao', '../imgs/feijao.jpg', 'Feijão Carioca Kicaldo 1kg', 'R$3.50')">+</span>
 
             </span>
+            <span class="produto">
+                <span class="produto">
+                    <h3 class="desconto">10%</h3>
+    
+                    <div class="imgProdutoPadrao4"></div>
+    
+                    <p class="descricaoProduto">Leite UHD Italac 1L</p>
+    
+                    <p class="precoAntes">R$6,99</p>
+    
+                    <p class="precoAtual">R$6,29</p>
+    
+                    <span class="btnAddCart" id="btnAddCart" onclick="adicionarProdutoNoCarrinho('leite', '../imgs/leite-italac.jpeg', 'Leite Italac 1L', 'R$6.29')">+</span>
+    
+                </span>
+            </span>
+
+            <span class="produto">
+                <span class="produto">
+                    <h3 class="desconto">10%</h3>
+    
+                    <div class="imgProdutoPadrao5"></div>
+    
+                    <p class="descricaoProduto">Margarina Cremosy 500g c/sal</p>
+    
+                    <p class="precoAntes">R$8,99</p>
+    
+                    <p class="precoAtual">R$7,99</p>
+    
+                    <span class="btnAddCart" id="btnAddCart" onclick="adicionarProdutoNoCarrinho('margarina', '../imgs/margarina.jpeg', 'Margarina Cremosy 500g', 'R$7.99')">+</span>
+    
+                </span>
+            </span>
+
             <span class="produto">
                 <h1 id="addProdutos">+</h1>
             </span>
@@ -163,14 +205,28 @@
             <span class="produto">
                 <h1 id="addProdutos">+</h1>
             </span>
-
+            <span class="produto">
+                <h1 id="addProdutos">+</h1>
+            </span>
+            <span class="produto">
+                <h1 id="addProdutos">+</h1>
+            </span>
+            <span class="produto">
+                <h1 id="addProdutos">+</h1>
+            </span>
+            <span class="produto">
+                <h1 id="addProdutos">+</h1>
+            </span>
+            <span class="produto">
+                <h1 id="addProdutos">+</h1>
+            </span>
+            <span class="produto">
+                <h1 id="addProdutos">+</h1>
+            </span>
             <span class="produto">
                 <h1 id="addProdutos">+</h1>
             </span>
 
-            <span class="produto">
-                <h1 id="addProdutos">+</h1>
-            </span>
 
            
 
@@ -186,8 +242,10 @@
 
 
     <div id="alert">
-        <span class="material-symbols-outlined" id="alertIcon">check</span>
-        <h3 id="descAlert"></h3>
+        <div class="alertC">
+            <span class="material-symbols-outlined" id="alertIcon">check</span>
+            <h3 id="descAlert"></h3>
+        </div>
     </div>
 
 
